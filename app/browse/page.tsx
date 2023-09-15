@@ -31,7 +31,7 @@ const page = () => {
 
   return (
     <>
-    <div className="p-16 grid grid-cols-4 gap-20">
+    <div className="p-16 grid lg:grid-cols-4 md:grid-cols-2 sm:grid-cols-2 gap-20">
       { !loading ? movieLists && movieLists?.map((movie: any) => {
         return (
           <Card id={movie.id} title={movie.title} backdrop_path={movie.backdrop_path} overview={movie.overview} poster_path={movie.poster_path} release_date={movie.release_date} vote_average={movie.vote_average}/>
