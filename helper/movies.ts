@@ -41,3 +41,24 @@ export const searchMovies = async (query: string) => {
     return []
   }
 }
+
+export const fetchMovieDetails = async(id: number) => {
+  try {
+    const response = await axios.get(
+      `${process.env.NEXT_PUBLIC_BASE_URL}/movie/${id}?language=en-US`,
+      {
+        headers: {
+          accept: 'application/json',
+          Authorization: `Bearer ${process.env.NEXT_PUBLIC_TOKEN}`,
+        },
+      }
+    );
+    if(response.data) {
+      console.log(response.data);
+      return response.data
+    }
+  } catch (err: any) {
+    console.log("fetch movies details error", err.response);
+    return []
+  }
+}

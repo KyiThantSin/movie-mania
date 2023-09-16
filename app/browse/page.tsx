@@ -14,7 +14,7 @@ const page = () => {
       try {
         const data = await fetchMovies();
         setMovieLists(data);
-      } catch (error) {
+      } catch (error: any) {
         console.error("Error fetching movies:", error);
       } finally {
         setLoading(false);
