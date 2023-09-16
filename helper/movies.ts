@@ -75,11 +75,32 @@ export const fetchTrailer = async(id: number) => {
       }
     );
     if(response.data) {
-      console.log('->',response.data.results[response.data.results.length-1]);
+     // console.log('->',response.data.results[response.data.results.length-1]);
       return response.data.results[response.data.results.length-1]
     }
   } catch (err: any) {
     console.log("fetch trailer error", err.response);
+    return []
+  }
+}
+
+export const fetchUpcomingMovies = async () =>{
+  try {
+    const response = await axios.get(
+      `${process.env.NEXT_PUBLIC_BASE_URL}movie/upcoming?language=en-US&page=1`,
+      {
+        headers: {
+          accept: 'application/json',
+          Authorization: `Bearer ${process.env.NEXT_PUBLIC_TOKEN}`,
+        },
+      }
+    );
+    if(response.data) {
+      //console.log(response.data);
+      return response.data.results
+    }
+  } catch (err: any) {
+    console.log("fetch upcoming movies  error", err.response);
     return []
   }
 }

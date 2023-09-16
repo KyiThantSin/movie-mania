@@ -47,7 +47,7 @@ const MovieDetails = () => {
 
   //handle view trailer
   const trailerHandler = (e: MouseEvent<HTMLButtonElement>) => {
-    console.log("run");
+    //console.log("run");
     setOpenTrailer(!openTrailer);
   };
 
