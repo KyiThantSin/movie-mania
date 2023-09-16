@@ -33,7 +33,7 @@ export const searchMovies = async (query: string) => {
       }
     );
     if (response.data) {
-      console.log(response.data.results);
+      //console.log(response.data.results);
       return response.data.results
     }
   } catch (err: any) {
@@ -54,11 +54,32 @@ export const fetchMovieDetails = async(id: number) => {
       }
     );
     if(response.data) {
-      console.log(response.data);
+      //console.log(response.data);
       return response.data
     }
   } catch (err: any) {
     console.log("fetch movies details error", err.response);
+    return []
+  }
+}
+
+export const fetchTrailer = async(id: number) => {
+  try {
+    const response = await axios.get(
+      `${process.env.NEXT_PUBLIC_BASE_URL}/movie/${id}/videos?language=en-US`,
+      {
+        headers: {
+          accept: 'application/json',
+          Authorization: `Bearer ${process.env.NEXT_PUBLIC_TOKEN}`,
+        },
+      }
+    );
+    if(response.data) {
+      //console.log(response.data.results);
+      return response.data.results
+    }
+  } catch (err: any) {
+    console.log("fetch trailer error", err.response);
     return []
   }
 }
