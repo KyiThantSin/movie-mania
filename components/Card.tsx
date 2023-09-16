@@ -34,7 +34,7 @@ const Card = ({
           className="flex rounded-lg w-52 h-60 mx-auto"
         />
         <h3 className="text-xl text-center">{title}</h3>
-        <p className="text-center">{overview.substring(0, 60)}...</p>
+        <p className="text-center">{overview?.substring(0, 60)}...</p>
       </div>
     </Link>
   );

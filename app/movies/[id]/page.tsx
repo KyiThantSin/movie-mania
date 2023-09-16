@@ -66,9 +66,11 @@ const MovieDetails = () => {
         <div className="w-3/5 xs:w-screen">
           <div className="static">
             <h3 className="text-3xl font-medium">{details.title}</h3>
-            <div className=" bg-yellow-400 absolute lg:w-16 lg:h-16 md:w-10 md:h-10 text-center p-2 text-3xl text-white right-8 ">
-              {details.vote_average?.toFixed(1)}
-            </div>
+            {details.vote_average && (
+              <div className=" bg-yellow-400 absolute lg:w-16 lg:h-16 md:w-10 md:h-10 text-center p-2 text-3xl text-white right-8 ">
+                {details.vote_average?.toFixed(1)}
+              </div>
+            )}
             <div className="mt-6 grid lg:grid-cols-5 md:grid-cols-3 sm:grid-cols-3 gap-2 w-1/2 ">
               {details.genres &&
                 details.genres.map((genre: Genre) => {

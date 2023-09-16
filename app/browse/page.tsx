@@ -1,8 +1,19 @@
 "use client";
 import Card, { CardProps } from "@/components/Card";
 import Skeleton from "@/components/Skeleton";
-import { fetchMovieGenres, fetchMovies, searchMovies } from "@/helper/movies";
-import React, { ChangeEvent, FormEvent, useEffect, useState } from "react";
+import {
+  fetchMovieByGenres,
+  fetchMovieGenres,
+  fetchMovies,
+  searchMovies,
+} from "@/helper/movies";
+import React, {
+  ChangeEvent,
+  FormEvent,
+  MouseEvent,
+  useEffect,
+  useState,
+} from "react";
 interface MovieGenresProps {
   id: number;
   name: string;
@@ -13,6 +24,7 @@ const page = () => {
   const [searchQuery, setSearchQuery] = useState<string>("");
   const [movieLists, setMovieLists] = useState<CardProps[]>([]);
   const [movieGenres, setMovieGenres] = useState<MovieGenresProps[]>([]);
+  const [activeGenre, setActiveGenre] = useState<string | null>(null);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -51,6 +63,13 @@ const page = () => {
     setSearchQuery(e.target.value);
   };
 
+  //by geners
+  const handleSearchByGenres = async (query: string) => {
+    const response = await fetchMovieByGenres(query);
+    setMovieLists(response);
+    setActiveGenre(query === activeGenre ? null : query);
+  };
+
   return (
     <>
       <form
@@ -77,10 +96,16 @@ const page = () => {
       <div className="mt-4 mx-16 mb-8 flex flex-wrap flex-row lg:gap-6 gap-4">
         {movieGenres &&
           movieGenres.slice(0, 14).map((genre: MovieGenresProps) => {
+            const isActive = activeGenre == genre.name;
             return (
               <button
-                className="rounded-2xl text-center border-2 border-fuchsia-500 text-md sm:text-md lg:w-auto w-auto p-1 sm:p-2 drop-shadow-md cursor-pointer mt-2 hover:bg-fuchsia-400 hover:text-white"
-                key={genre.id}>
+                className={`rounded-2xl text-center border-2 text-md sm:text-md lg:w-auto w-auto p-1 sm:p-2 drop-shadow-md cursor-pointer mt-2 ${
+                  isActive
+                    ? "bg-fuchsia-500 text-white border-fuchsia-500"
+                    : "border-fuchsia-500 text-fuchsia-500"
+                } hover:bg-fuchsia-400 hover:text-white`}
+                key={genre.id}
+                onClick={() => handleSearchByGenres(genre.name)}>
                 {genre.name}
               </button>
             );

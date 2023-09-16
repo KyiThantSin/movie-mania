@@ -127,3 +127,24 @@ export const fetchMovieGenres = async () => {
     return [];
   }
 };
+
+export const fetchMovieByGenres = async (query : string) => {
+  try {
+    const response = await axios.get(
+      `${process.env.NEXT_PUBLIC_BASE_URL}search/multi?query=${query}&include_adult=false&language=en-US`,
+      {
+        headers: {
+          accept: "application/json",
+          Authorization: `Bearer ${process.env.NEXT_PUBLIC_TOKEN}`,
+        },
+      }
+    );
+    if (response.data) {
+      //console.log(response.data);
+      return response.data.results;
+    }
+  } catch (err: any) {
+    console.log("fetch genres movies error", err.response);
+    return [];
+  }
+};
