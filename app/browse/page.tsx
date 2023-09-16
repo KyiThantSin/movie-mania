@@ -8,9 +8,6 @@ import {
   searchMovies,
 } from "@/helper/movies";
 import React, {
-  ChangeEvent,
-  FormEvent,
-  MouseEvent,
   useEffect,
   useState,
 } from "react";
@@ -19,14 +16,14 @@ interface MovieGenresProps {
   name: string;
 }
 
-const page = () => {
+const Browse = () => {
   const [loading, setLoading] = useState<Boolean>(true);
   const [searchQuery, setSearchQuery] = useState<string>("");
   const [movieLists, setMovieLists] = useState<CardProps[]>([]);
   const [movieGenres, setMovieGenres] = useState<MovieGenresProps[]>([]);
   const [activeGenre, setActiveGenre] = useState<string | null>(null);
 
-  useEffect(() => {
+  useEffect(() => { 
     const fetchData = async () => {
       try {
         const data = await fetchMovies();
@@ -51,7 +48,7 @@ const page = () => {
   );
 
   //search
-  const handleSearch = async (e: FormEvent) => {
+  const handleSearch = async (e: React.FormEvent) => {
     e.preventDefault();
     const data = await searchMovies(searchQuery);
     setMovieLists(data);
@@ -59,8 +56,8 @@ const page = () => {
   };
 
   //handle change
-  const handleOnChange = (e: ChangeEvent<HTMLInputElement>) => {
-    setSearchQuery(e.target.value);
+  const handleOnChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setSearchQuery(e.target.value); 
   };
 
   //by geners
@@ -119,6 +116,7 @@ const page = () => {
             movieLists?.map((movie: any) => {
               return (
                 <Card
+                  key={movie.id}
                   id={movie.id}
                   title={movie.title}
                   overview={movie.overview}
@@ -136,4 +134,4 @@ const page = () => {
   );
 };
 
-export default page;
+export default Browse;

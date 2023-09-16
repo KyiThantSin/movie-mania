@@ -37,6 +37,7 @@ const Carousel = () => {
                 alt={image.title}
                 width={100}
                 height={90}
+                key={image.id}
                 className="flex rounded-lg w-60 h-60 mx-auto"
               />
             );

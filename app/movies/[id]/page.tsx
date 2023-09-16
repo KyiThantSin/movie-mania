@@ -75,7 +75,7 @@ const MovieDetails = () => {
               {details.genres &&
                 details.genres.map((genre: Genre) => {
                   return (
-                    <p className="rounded-full text-center border-2 border-fuchsia-300 bg-fuchsia-500 text-white text-sm w-auto p-1 drop-shadow-md">
+                    <p className="rounded-full text-center border-2 border-fuchsia-300 bg-fuchsia-500 text-white text-sm w-auto p-1 drop-shadow-md" key={genre.id}>
                       {genre.name}
                     </p>
                   );
