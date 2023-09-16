@@ -22,7 +22,7 @@ const page = () => {
     };
     fetchData();
   }, []);
-  console.log(movieLists);
+  //console.log(movieLists);
 
   //skeleton loading
   const placeholders = Array.from({ length: movieLists.length }).map(
@@ -46,9 +46,9 @@ const page = () => {
 
   return (
     <>
-      <form className="grid grid-cols-2 gap-5 m-20 content-center" onSubmit={handleSearch}>
+      <form className="grid grid-cols-2 gap-5 m-16 content-center" onSubmit={handleSearch}>
         <input
-          className="w-auto h-5 p-6 rounded border-2	"
+          className="w-auto h-5 p-6 rounded-lg border-2	"
           type="text"
           id="search"
           name="search"
@@ -59,7 +59,7 @@ const page = () => {
         />
         <button
           type="submit"
-          className="bg-fuchsia-600 hover:bg-fuchsia-800 w-20 rounded text-white">
+          className="bg-fuchsia-700 hover:bg-fuchsia-800 w-20 rounded text-white">
           Search
         </button>
       </form>
@@ -72,10 +72,8 @@ const page = () => {
                 <Card
                   id={movie.id}
                   title={movie.title}
-                  backdrop_path={movie.backdrop_path}
                   overview={movie.overview}
                   poster_path={movie.poster_path}
-                  release_date={movie.release_date}
                   vote_average={movie.vote_average}
                 />
               );
