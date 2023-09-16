@@ -75,8 +75,8 @@ export const fetchTrailer = async(id: number) => {
       }
     );
     if(response.data) {
-      //console.log(response.data.results);
-      return response.data.results
+      console.log('->',response.data.results[response.data.results.length-1]);
+      return response.data.results[response.data.results.length-1]
     }
   } catch (err: any) {
     console.log("fetch trailer error", err.response);
