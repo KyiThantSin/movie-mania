@@ -55,7 +55,7 @@ const MovieDetails = () => {
     <div className="p-24 flex flex-row gap-10 flex-wrap">
       {details && (
         <Image
-          src={`${process.env.NEXT_PUBLIC_IMAGE_URL}${details.poster_path}`}
+          src={`${process.env.NEXT_PUBLIC_IMAGE_URL}${details?.poster_path}`}
           height={350}
           width={350}
           alt={details.title}
@@ -82,9 +82,9 @@ const MovieDetails = () => {
                 })}
             </div>
             <h4 className="mt-6 text-xl font-bold">Overview</h4>
-            <p className="mt-2">{details.overview}</p>
+            <p className="mt-2">{details?.overview}</p>
             <p className="mt-8 text-zinc-700">
-              <b>Relased Date:</b> {details.release_date}{" "}
+              <b>Relased Date:</b> {details?.release_date}{" "}
             </p>
             <button
               className="mt-6 bg-blue-600 text-md p-3 w-64 h-12 cursor-pointer rounded hover:bg-blue-600 text-white"
