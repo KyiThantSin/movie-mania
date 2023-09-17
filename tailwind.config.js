@@ -15,6 +15,9 @@ module.exports = {
       colors:{
         card : '#f3f4f6',
         hover : '#fafafa'
+      },
+      padding:{
+        layout: '2.3rem',
       }
     },
   },

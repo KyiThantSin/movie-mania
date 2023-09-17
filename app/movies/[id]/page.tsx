@@ -52,7 +52,7 @@ const MovieDetails = () => {
   };
 
   return (
-    <div className="p-24 flex flex-row gap-10 flex-wrap">
+    <div className="p-layout flex flex-row gap-10 flex-wrap">
       {details && (
         <Image
           src={`${process.env.NEXT_PUBLIC_IMAGE_URL}${details?.poster_path}`}
