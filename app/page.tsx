@@ -9,7 +9,7 @@ export default function Home() {
           <p className="py-8">
             Discover the magic of cinema like never before with{" "}
             <span className="text-fuchsia-800">Movie Mania</span>. Our vast
-            collection spans genres, eras, and cultures, ensuring there's
+            collection spans genres, eras, and cultures, ensuring there&rsquo;s
             something for everyone. Browse, search, and filter through a
             meticulously curated selection of movies. Your next movie night just
             got a whole lot more exciting!

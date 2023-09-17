@@ -42,8 +42,8 @@ const Browse = () => {
 
   //skeleton loading
   const placeholders = Array.from({ length: movieLists.length }).map(
-    (index) => {
-      return <Skeleton />;
+    (index : any) => {
+      return <Skeleton key={index}/>;
     }
   );
 

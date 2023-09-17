@@ -43,7 +43,7 @@ const MovieDetails = () => {
       }
     };
     fetchDetails();
-  }, []);
+  }, [parmas.id]);
 
   //handle view trailer
   const trailerHandler = (e: MouseEvent<HTMLButtonElement>) => {
