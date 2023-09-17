@@ -1,14 +1,8 @@
 import Carousel from "@/components/Carousel";
-import Head from "next/head";
 
 export default function Home() {
   return (
     <div className="flex min-h-screen flex-col items-center justify-between p-24">
-      <Head>
-        <title>Movie Mania</title>
-        <meta name="description" content="simple movies box" />
-      </Head>
-
       <main className="flex flex-col">
         <div className="container flex mx-auto justify-center flex-col text-center w-1/2 ">
           <h2 className="font-bold text-4xl text-fuchsia-800">Movie Mania</h2>
